@@ -1,0 +1,55 @@
+/* Polices d'écriture */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans+JP:wght@500&display=swap');
+
+/* La base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F9F9F9;
+}
+
+header {
+    font-family: "Bangers", system-ui;
+    line-height: 1.5;
+    background-color: #FFBE0B;
+    color: #3A86FF;
+    padding: 1rem;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+main {
+    color: #3A86FF;
+    padding: 1rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #FFBE0B;
+    color: #3A86FF;
+    padding: 1rem;
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.intro-jeu {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+li {
+    list-style: none;
+}
