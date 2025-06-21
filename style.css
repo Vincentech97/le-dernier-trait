@@ -42,21 +42,19 @@ footer {
     margin-bottom: 1.5rem;
 }
 
+/* Titres */
 h1 {
     font-size: 2.5rem;
     letter-spacing: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
+/* Supression des puces des listes */
 li {
     list-style: none;
 }
 
-.intro-jeu {
-    font-size: 1.5rem;
-    font-style: italic;
-}
-
+/* Contenue du clavier virtuelle */
 #clavier {
     display: flex;
     flex-wrap: wrap;
@@ -66,6 +64,72 @@ li {
     padding: 20px;
 }
 
+#mot {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 0;
+}
+
+/* Stylle des lettre (stylle bulle BD) */
+#mot li.lettre {
+  list-style: none;
+  background: #fff;
+  border: 3px solid #3A86FF;
+  border-radius: 20px 20px 20px 5px;
+  padding: 10px 15px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 2.5rem;
+  color: #3A86FF;
+  position: relative;
+  min-width: 40px;
+  text-align: center;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+}
+
+#mauvaises-lettres {
+    width: 400px;
+    min-height: 40px;
+    width: 100%;
+    max-width: 400px;
+    border: 3px solid #3A86FF;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.5rem;
+    color: #3A86FF;
+    background-color: #FFBE0B;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    letter-spacing: 0.5rem;
+    user-select: none;
+    }
+
+#lettres-mauvaises {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#lettres-mauvaises h2 {
+    font-family: "Bangers", system-ui;
+    font-size: 2rem;
+    color: #3A86FF;
+    letter-spacing: 0.1rem;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(58, 134, 255, 0.5);
+    display: flex;
+    justify-content: flex-start;
+}
+
+.intro-jeu {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+/* Style des touches du clavier */
 .touche {
     font-family: "Noto Sans JP", sans-serif;
     font-size: 1rem;
@@ -77,7 +141,49 @@ li {
     border: 3px solid #000;
     border-radius: 10px;
 }
+/* Style des touches du clavier utilisées*/
 .touche-utilisee {
   opacity: 0.3;
   pointer-events: none;
+}
+
+/* Popup (cachée par défaut) */
+.popup {
+    font-family: "Noto Sans JP", sans-serif;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+  background: #F9F9F9;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  text-align: center;
+  max-width: 300px;
+}
+
+.popup-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.popup-content button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #3A86FF;
+  color: #F9F9F9;
+  border: none;
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none;
 }
