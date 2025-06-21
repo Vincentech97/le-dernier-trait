@@ -15,28 +15,31 @@ body {
 header {
     font-family: "Bangers", system-ui;
     line-height: 1.5;
-    background-color: #FFBE0B;
     color: #3A86FF;
     padding: 1rem;
     width: 100%;
     margin: 0 auto;
     text-align: center;
+    border-bottom: 4px solid black;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 main {
-    color: #3A86FF;
     padding: 1rem;
     width: 100%;
     margin: 0 auto;
 }
 
 footer {
-    background-color: #FFBE0B;
     color: #3A86FF;
     padding: 1rem;
     width: 100%;
     margin: 0 auto;
     text-align: left;
+    border-top: 4px solid black;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 h1 {
@@ -45,11 +48,36 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
+li {
+    list-style: none;
+}
+
 .intro-jeu {
     font-size: 1.5rem;
     font-style: italic;
 }
 
-li {
-    list-style: none;
+#clavier {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.touche {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1rem;
+    color: #3A86FF;
+    background-color: #FFBE0B;
+    margin: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: 3px solid #000;
+    border-radius: 10px;
+}
+.touche-utilisee {
+  opacity: 0.3;
+  pointer-events: none;
 }
