@@ -5,6 +5,8 @@ const zoneMauvaisesLettres = document.querySelector("#mauvaises-lettres");
 const popupVictoire = document.querySelector("#popup-victoire");
 const messageVictoire = document.querySelector("#message-victoire");
 const btnRejouer = document.querySelector("#btn-rejouer");
+const champMot = document.querySelector("#mot-personnalise");
+const boutonValiderMot = document.querySelector("#valider-mot");
 
 
 // Définie les lettes du clavier 
@@ -14,27 +16,28 @@ const lettre = [
     "Y", "Z"
 ];
 
-    // Créer et faire apparaitre le clavier
+    // Créer et faire apparaitre le clavier pour chaque lettre
 lettre.forEach(lettre => {
     const bouton = document.createElement("button");
     bouton.textContent= lettre;
     bouton.classList.add("touche");
 
-    // Clic sur le bouton
+    // Clic sur une lettre du clavier
 bouton.addEventListener("click", () => {
     // console.log(`Lettre cliquée : ${lettre}`);
-    bouton.disabled = true;
-    bouton.classList.add("touche-utilisee");
+    bouton.disabled = true; // Désactiver le bouton après utilisation
+    bouton.classList.add("touche-utilisee"); // Ajouter un style visuel
 
     const lettreCliquee = bouton.textContent;
 
+    // Si la lettre fait partie du mot à deviner
     if (motATrouver.includes(lettreCliquee)) {
         // Bonne lettre
         if (!lettresTrouvees.includes(lettreCliquee)){
             lettresTrouvees.push(lettreCliquee);
             
         }
-        afficherMot()
+        afficherMot() // Mettre à jour l'affichage du mot
 
         // Toute les lettre trouvées
             if (!listeMot.textContent.includes("_")) {
@@ -49,7 +52,7 @@ bouton.addEventListener("click", () => {
             // Ajout du pendu
     }
 });
-
+    // Ajouter le bouton à la zone clavier
     clavier.appendChild(bouton);
 });
 
@@ -68,7 +71,7 @@ const mots = [
     "NATATION", "CYCLISME", "TENNIS", "JUDO", "SAUT", "MEDAILLE", "ENTRAINEUR"
 ];
 
-// Générer mot aléatoire avec une fonction
+// Fonction qui retourne un mot aléatoire depuis la liste
 function motAleatoire() {
     const index = Math.floor(Math.random() * mots.length);
     return mots[index];
@@ -81,7 +84,7 @@ let mauvaisesLettres = [];
 
 //  Fonction pour afficher le mot à deviner en remplaçant les lettres non trouvées par des underscores
 function afficherMot() {
-    listeMot.innerHTML = "";
+    listeMot.innerHTML = ""; // Vider le mot avant de le reconstruire
 
     for (let lettre of motATrouver) {
         const li = document.createElement("li");
@@ -97,16 +100,56 @@ function afficherMot() {
     }
 };
 
+// Gestion du mot personnalisé
+boutonValiderMot.addEventListener("click", () => {
+  const mot = champMot.value.trim().toUpperCase();
+
+  // Vérification : pas vide et lettres uniquement
+  if (mot.length > 0 && /^[A-Z]+$/.test(mot)) {
+    motATrouver = mot;
+    lettresTrouvees = [];
+    mauvaisesLettres = [];
+
+    afficherMot();
+    afficherMauvaisesLettres();
+    afficherPopupVictoire(motATrouver);
+
+    // Réinitialiser le clavier
+    const touches = document.querySelectorAll("#clavier button");
+    touches.forEach(touche => {
+      touche.disabled = false;
+      touche.classList.remove("touche-utilisee");
+    });
+
+    // Vider le champ
+    champMot.value = "";
+  } else {
+    alert("Veuillez entrer un mot valide (lettres uniquement, sans espace).");
+  }
+});
+
+function toutesLettresTrouvees() {
+  for (let lettre of motATrouver) {
+    if (!lettresTrouvees.includes(lettre)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// Afficher les mauvaises lettres
 function afficherMauvaisesLettres() {
     const maxErreurs = 8;
     zoneMauvaisesLettres.textContent = mauvaisesLettres.join(" ");
 }
 
+// Afficher le popup de victoire
 function afficherPopupVictoire(mot) {
   messageVictoire.textContent = "Bravo ! Tu as trouvé le mot : " + mot;
   popupVictoire.classList.remove("hidden");
 }
 
+// Lancer une nouvelle partie
 function nouvellePartie() {
 
     // Rénitialiser les variables

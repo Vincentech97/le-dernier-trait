@@ -187,3 +187,29 @@ li {
 .hidden {
   display: none;
 }
+
+
+#choix-mot {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#choix-mot input {
+  padding: 8px;
+  font-size: 1rem;
+  width: 200px;
+  text-align: center;
+  border: 2px solid #3A86FF;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+#choix-mot button {
+  padding: 8px 15px;
+  background-color: #3A86FF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
