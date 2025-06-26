@@ -15,51 +15,53 @@
 
     <!-- Partie Jeu -->
      <main>
-
-        <!-- Mot à deviner -->
-         <section id="mot-a-deviner" class="bulle">
-            <ul id="mot">
-               <!-- Les <li> seront ajoutés dynamiquement en JS -->
-            </ul>
-         </section>
-
-         <!-- Saisie du mot -->
-          <section id="choix-mot">
-            <label for="mot-personnalise">Propose un mot à deviner :</label>
-            <input type="text" id="mot-personnalise" maxlength="20" />
-            <button id="valider-mot">Valider</button>
-          </section>
-
+      <div id="main-content">
          <section id="lettres-mauvaises">
             <h2>Lettres incorrectes</h2>
             <p id="mauvaises-lettres"></p>
          </section>
 
-        <!-- Dessin du pendu -->
+         <!-- Mot à deviner -->
+         <div id="zone-centre">
+            <section id="mot-a-deviner" class="bulle">
+               <ul id="mot">
+                  <!-- Les <li> seront ajoutés dynamiquement en JS -->
+               </ul>
+            </section>
+            <!-- Saisie du mot -->
+            <section id="choix-mot">
+               <label for="mot-personnalise">Propose un mot à deviner :</label>
+               <input type="text" id="mot-personnalise" maxlength="20" />
+               <button id="valider-mot">Valider</button>
+            </section>
+         </div>
+         
+         <!-- Dessin du pendu -->
          <section id="pendu" class="zone-pendu">
             <img id="image-pendu" src="images/pendu0.svg" alt="pendu" />
          </section>
+      </div>
 
-        <!-- Clavier virtuel -->
+         <!-- Clavier virtuel -->
          <section id="clavier">
             <!-- Ajoutés dynamiquement avec JS -->
          </section>
 
-        <!-- Message final -->
-
-         <div id="popup-victoire" class="popup hidden">
-            <div class="popup-content">
-               <p id="message-victoire"></p>
-               <button id="btn-rejouer">Rejouer</button>
-            </div>
+      <!-- Message final -->
+      <div id="popup-victoire" class="popup hidden">
+         <div class="popup-content">
+            <p id="message-victoire"></p>
+            <button id="btn-rejouer">Rejouer</button>
          </div>
-
+      </div>
      </main> 
+
      <footer>
       <ul>
          <li>© Le Dernier Trait</li>
       </ul>
      </footer>
+
      <script src="main.js"></script>
 </body>
 </html>

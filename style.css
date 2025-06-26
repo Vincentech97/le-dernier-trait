@@ -31,6 +31,13 @@ main {
     margin: 0 auto;
 }
 
+/* Titres */
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
 footer {
     color: #3A86FF;
     padding: 1rem;
@@ -42,77 +49,23 @@ footer {
     margin-bottom: 1.5rem;
 }
 
-/* Titres */
-h1 {
-    font-size: 2.5rem;
-    letter-spacing: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Supression des puces des listes */
-li {
-    list-style: none;
-}
-
-/* Contenue du clavier virtuelle */
-#clavier {
+#main-content {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 30px;
-    padding: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 0 1rem;
 }
 
-#mot {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-  padding: 0;
-}
-
-/* Stylle des lettre (stylle bulle BD) */
-#mot li.lettre {
-  list-style: none;
-  background: #fff;
-  border: 3px solid #3A86FF;
-  border-radius: 20px 20px 20px 5px;
-  padding: 10px 15px;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 2.5rem;
-  color: #3A86FF;
-  position: relative;
-  min-width: 40px;
-  text-align: center;
-  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
-}
-
-#mauvaises-lettres {
-    width: 400px;
-    min-height: 40px;
-    width: 100%;
-    max-width: 400px;
-    border: 3px solid #3A86FF;
-    border-radius: 10px;
-    padding: 10px;
-    font-family: "Noto Sans JP", sans-serif;
-    font-size: 1.5rem;
-    color: #3A86FF;
-    background-color: #FFBE0B;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    letter-spacing: 0.5rem;
-    user-select: none;
-    }
-
+/* Mauvaises lettres à gauche */
 #lettres-mauvaises {
+    flex: 1;
+    max-width: 220px;
     margin-top: 30px;
-    text-align: center;
+    text-align: left;
 }
 
+/* Style du titre dans mauvaises lettres */
 #lettres-mauvaises h2 {
     font-family: "Bangers", system-ui;
     font-size: 2rem;
@@ -124,9 +77,91 @@ li {
     justify-content: flex-start;
 }
 
-.intro-jeu {
-    font-size: 1.5rem;
-    font-style: italic;
+/* Conteneur central : mot + formulaire */
+#zone-centre {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 30px;
+}
+
+/* Mot à deviner */
+#mot {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 0;
+}
+
+/* Style des lettres (bulles BD) */
+#mot li.lettre {
+    list-style: none;
+    background: #fff;
+    border: 3px solid #3A86FF;
+    border-radius: 20px 20px 20px 5px;
+    padding: 10px 15px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 2.5rem;
+    color: #3A86FF;
+    position: relative;
+    min-width: 40px;
+    text-align: center;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+}
+
+/* Formulaire */
+#choix-mot {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#choix-mot input {
+    padding: 8px;
+    font-size: 1rem;
+    width: 200px;
+    text-align: center;
+    border: 2px solid #3A86FF;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+#choix-mot button {
+    padding: 8px 15px;
+    background-color: #3A86FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Pendu à droite */
+#pendu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 30px;
+}
+
+#image-pendu {
+    max-width: 100%;
+    height: auto;
+    width: 250px; /* Ajuste selon ton besoin */
+}
+
+/* Clavier centré en bas */
+#clavier {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 0;
 }
 
 /* Style des touches du clavier */
@@ -141,10 +176,31 @@ li {
     border: 3px solid #000;
     border-radius: 10px;
 }
-/* Style des touches du clavier utilisées*/
+
+/* Style des touches du clavier utilisées */
 .touche-utilisee {
-  opacity: 0.3;
-  pointer-events: none;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Mauvaises lettres affichées */
+#mauvaises-lettres {
+    width: 100%;
+    max-width: 400px;
+    min-height: 40px;
+    border: 3px solid #3A86FF;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.5rem;
+    color: #3A86FF;
+    background-color: #FFBE0B;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    letter-spacing: 0.5rem;
+    user-select: none;
 }
 
 /* Popup (cachée par défaut) */
@@ -161,68 +217,35 @@ li {
 }
 
 .popup-content {
-  background: #F9F9F9;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  text-align: center;
-  max-width: 300px;
+    background: #F9F9F9;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    text-align: center;
+    max-width: 300px;
 }
 
 .popup-content p {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 
 .popup-content button {
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  background: #3A86FF;
-  color: #F9F9F9;
-  border: none;
-  border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background: #3A86FF;
+    color: #F9F9F9;
+    border: none;
+    border-radius: 8px;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
-
-#choix-mot {
-  margin-top: 20px;
-  text-align: center;
+.intro-jeu {
+    font-size: 1.5rem;
+    font-style: italic;
 }
 
-#choix-mot input {
-  padding: 8px;
-  font-size: 1rem;
-  width: 200px;
-  text-align: center;
-  border: 2px solid #3A86FF;
-  border-radius: 8px;
-  margin-right: 10px;
-}
-
-#choix-mot button {
-  padding: 8px 15px;
-  background-color: #3A86FF;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-#pendu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-}
-
-#image-pendu {
-  max-width: 100%;
-  height: auto;
-  width: 250px; /* tu peux ajuster selon ton besoin */
-}
