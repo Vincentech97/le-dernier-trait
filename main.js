@@ -139,14 +139,30 @@ function toutesLettresTrouvees() {
 
 // Afficher les mauvaises lettres
 function afficherMauvaisesLettres() {
-    const maxErreurs = 8;
+    const maxErreurs = 6;
     zoneMauvaisesLettres.textContent = mauvaisesLettres.join(" ");
+
+    // Afficher l'image
+    const image = document.querySelector("#image-pendu");
+    const etape = Math.min(mauvaisesLettres.length, maxErreurs);
+    image.src = `images/pendu${etape}.svg`;
+
+    // Défaite si max erreur atteinte
+    if (mauvaisesLettres.length >= maxErreurs) {
+        afficherPopupDefaite(motATrouver);
+    }
 }
 
 // Afficher le popup de victoire
 function afficherPopupVictoire(mot) {
   messageVictoire.textContent = "Bravo ! Tu as trouvé le mot : " + mot;
   popupVictoire.classList.remove("hidden");
+}
+
+// Afficher le popup défaite
+function afficherPopupDefaite(mot) {
+    messageVictoire.textContent = "Perdu ! Le mot était : " + mot;
+    popupVictoire.classList.remove("hidden");
 }
 
 // Lancer une nouvelle partie
@@ -164,6 +180,9 @@ function nouvellePartie() {
         touche.disabled = false;
         touche.classList.remove("touche-utilisee");
     });
+
+    // Réinitialiser l'image
+    document.getElementById("image-pendu").src = "images/pendu0.svg";
 
     // Cacher la popup
     popupVictoire.classList.add("hidden")

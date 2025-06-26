@@ -213,3 +213,16 @@ li {
   font-size: 1rem;
   cursor: pointer;
 }
+
+#pendu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+#image-pendu {
+  max-width: 100%;
+  height: auto;
+  width: 250px; /* tu peux ajuster selon ton besoin */
+}
