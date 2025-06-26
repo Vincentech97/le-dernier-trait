@@ -13,16 +13,31 @@ body {
 }
 
 header {
-    font-family: "Bangers", system-ui;
-    line-height: 1.5;
-    color: #3A86FF;
-    padding: 1rem;
-    width: 100%;
-    margin: 0 auto;
+    font-family: "Bangers", system-ui, cursive;
+    background-color: #3A86FF;
+    color: white;
+    padding: 2rem 1rem;
     text-align: center;
-    border-bottom: 4px solid black;
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
+    border-bottom: 4px solid #FFBE0B;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3rem;
+    letter-spacing: 0.7rem;
+    margin-bottom: 0.3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header .intro-jeu {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #FFEB99;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 main {
@@ -39,14 +54,23 @@ h1 {
 }
 
 footer {
-    color: #3A86FF;
-    padding: 1rem;
-    width: 100%;
-    margin: 0 auto;
-    text-align: left;
-    border-top: 4px solid black;
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
+    background-color: #3A86FF;
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1rem;
+    box-shadow: 0 -3px 10px rgba(58, 134, 255, 0.4);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+footer ul {
+  list-style: none;
+  display: inline-flex;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
 }
 
 #main-content {
@@ -54,15 +78,15 @@ footer {
     justify-content: space-between;
     align-items: flex-start;
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 1rem;
 }
 
 /* Mauvaises lettres à gauche */
 #lettres-mauvaises {
-    flex: 1;
-    max-width: 220px;
-    margin-top: 30px;
-    text-align: left;
+    flex: 1 1 200px;
+    max-width: 300px;
 }
 
 /* Style du titre dans mauvaises lettres */
@@ -79,12 +103,10 @@ footer {
 
 /* Conteneur central : mot + formulaire */
 #zone-centre {
-    flex: 2;
+    flex: 2 1 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
-    margin-top: 30px;
 }
 
 /* Mot à deviner */
@@ -140,28 +162,26 @@ footer {
 
 /* Pendu à droite */
 #pendu {
-    flex: 1;
+    flex: 1 1 250px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
-    margin-top: 30px;
 }
 
 #image-pendu {
     max-width: 100%;
     height: auto;
-    width: 250px; /* Ajuste selon ton besoin */
+    width: 250px;
 }
 
 /* Clavier centré en bas */
 #clavier {
-    margin-top: 2rem;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
-    padding: 20px 0;
+    margin: 2rem auto 1rem auto;
+    max-width: 600px;
 }
 
 /* Style des touches du clavier */
@@ -249,3 +269,59 @@ footer {
     font-style: italic;
 }
 
+/* Responsive : petits écrans */
+@media (max-width: 900px) {
+
+    #main-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    #lettres-mauvaises,
+    #zone-centre,
+    #pendu {
+        max-width: 100%;
+        flex: none;
+        width: 100%;
+    }
+
+    #lettres-mauvaises {
+        order: 1;
+    }
+
+    #zone-centre {
+        order: 2;
+    }
+
+    #pendu {
+        order: 3;
+        margin-top: 1rem;
+    }
+
+    #clavier {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 1.5rem 1rem;
+    }
+    header h1 {
+        font-size: 2rem;
+        letter-spacing: 0.3rem;
+    }
+    header .intro-jeu {
+        font-size: 1.1rem;
+        max-width: 90%;
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    footer {
+        font-size: 0.9rem;
+    }
+}
